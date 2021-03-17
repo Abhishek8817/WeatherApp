@@ -18,10 +18,10 @@ object ApiClient {
                     .build();
 
     fun getHttpClient(): OkHttpClient{
-        val client = OkHttpClient.Builder();
-        val logging : HttpLoggingInterceptor= HttpLoggingInterceptor();
-        logging.level =HttpLoggingInterceptor.Level.BODY;
-        return client.addInterceptor(logging).build()
+        return  OkHttpClient.Builder().build()
+        //        val logging : HttpLoggingInterceptor= HttpLoggingInterceptor();
+//        logging.level =HttpLoggingInterceptor.Level.BODY;
+        //return client.addInterceptor(logging).build()
     }
 
     fun getWeatherAPi() : WeatherApi{
