@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.web.weather.model.WeatherDetails
 
 
-@Database(entities = arrayOf(WeatherDetails::class)  , version = 2, exportSchema = false)
+@Database(entities = arrayOf(WeatherDetails::class)  , version = 3, exportSchema = false)
 public abstract class WeatherRoomDatabase : RoomDatabase() {
 
     abstract fun weatherDao(): WeatherDao

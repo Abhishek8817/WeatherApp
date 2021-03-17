@@ -1,18 +1,60 @@
 package com.web.weather.model
 
+import androidx.room.*
+import com.google.gson.annotations.SerializedName
+
+
+//not compulsory to add the coloumn info and serializedname
+
+@Entity( tableName = "weather_table")
 data class WeatherDetails(
+
+	@ColumnInfo(name = "wt_id" )
+	@field:SerializedName("id")
+	val id: Int,
+
+	@ColumnInfo(name = "wt_dt" )
+	@field:SerializedName("dt")
 	val dt: Int? = null,
-	val coord: Coord? = null,
-	val visibility: Int? = null,
-	val weather: List<WeatherItem?>? = null,
-	val name: String? = null,
+
+	@ColumnInfo(name = "wt_cod")
+	@field:SerializedName("cod")
 	val cod: Int? = null,
+
+	@PrimaryKey
+	@ColumnInfo(name = "wt_name")
+	@field:SerializedName("name")
+	val name: String,
+
+	@Embedded
+	@field:SerializedName("coord")
+	val coord: Coord? = null,
+
+	@ColumnInfo(name = "wt_visibility")
+	@field:SerializedName("visibility")
+	val visibility: Int? = null,
+
+//	@ColumnInfo(name = "wt_visibility")
+//	@field:SerializedName("weather")
+//	val weather: List<WeatherItem?>? = null,
+
+	@Embedded
+	@field:SerializedName("main")
 	val main: Main? = null,
+
+	@Embedded
+	@field:SerializedName("clouds")
 	val clouds: Clouds? = null,
-	val id: Int? = null,
-	val sys: Sys? = null,
+
+	@Embedded
+	@field:SerializedName("sys")
+	val sys: Sys,
+
+	@ColumnInfo(name = "wt_base")
+	@field:SerializedName("base")
 	val base: String? = null,
+
+	@Embedded
+	@field:SerializedName("wind")
 	val wind: Wind? = null
 )
-
-

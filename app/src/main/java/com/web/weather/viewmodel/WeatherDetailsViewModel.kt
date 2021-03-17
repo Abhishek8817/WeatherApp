@@ -25,7 +25,7 @@ class WeatherDetailsViewModel(application : Application) : BaseViewModel(applica
     fun getCityWeather(){
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val mResponse= mWeatherRepository.getWeather("Indore");
+                val mResponse= mWeatherRepository.getWeather("indore");
                 withContext(Dispatchers.Main){
                     Log.d(TAG , "Response : " +  mResponse.toString());
                     mWeatherData.value = mResponse

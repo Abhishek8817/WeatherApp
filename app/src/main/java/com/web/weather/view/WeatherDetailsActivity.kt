@@ -33,7 +33,7 @@ class WeatherDetailsActivity : AppCompatActivity() {
     }
 
     fun updateUI(mData : WeatherDetails){
-        Toast.makeText(this,"" + mData.cod,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"" + mData.sys.id,Toast.LENGTH_SHORT).show()
         Log.d(TAG,""+ mData.toString())
     }
 
