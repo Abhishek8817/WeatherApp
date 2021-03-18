@@ -6,6 +6,4 @@ import android.app.Application
 class mApplication : Application() {
 
 
-
-
 }

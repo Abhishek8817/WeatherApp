@@ -2,6 +2,7 @@ package com.web.weather.model
 
 import androidx.room.*
 import com.google.gson.annotations.SerializedName
+import com.web.weather.db.WeatherConverter
 
 
 //not compulsory to add the coloumn info and serializedname
@@ -13,7 +14,7 @@ data class WeatherDetails(
 	@field:SerializedName("id")
 	val id: Int,
 
-	@ColumnInfo(name = "wt_dt" )
+	@ColumnInfo(name = "wt_dtt" )
 	@field:SerializedName("dt")
 	val dt: Int? = null,
 
@@ -34,9 +35,10 @@ data class WeatherDetails(
 	@field:SerializedName("visibility")
 	val visibility: Int? = null,
 
-//	@ColumnInfo(name = "wt_visibility")
-//	@field:SerializedName("weather")
-//	val weather: List<WeatherItem?>? = null,
+
+	@TypeConverters(WeatherConverter::class)
+	@field:SerializedName("weather")
+	val weather: List<WeatherItem>,
 
 	@Embedded
 	@field:SerializedName("main")
