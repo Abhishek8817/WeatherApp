@@ -14,7 +14,7 @@ data class WeatherDetails(
 	@field:SerializedName("id")
 	val id: Int,
 
-	@ColumnInfo(name = "wt_dtt" )
+	@ColumnInfo(name = "wt_dt" )
 	@field:SerializedName("dt")
 	val dt: Int? = null,
 
