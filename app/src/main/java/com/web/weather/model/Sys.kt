@@ -18,11 +18,11 @@ data class Sys(
 
 	@ColumnInfo(name = "sys_id" )
 	@field:SerializedName("id")
-	val id: Int,
+	val id: Int? = null,
 
 	@field:SerializedName("type")
-	val type: Int,
+	val type: Int? = null,
 
 	@field:SerializedName("message")
-	val message: Double
+	val message: Double? = null
 )

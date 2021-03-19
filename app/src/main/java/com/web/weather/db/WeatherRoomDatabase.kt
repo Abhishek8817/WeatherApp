@@ -17,7 +17,7 @@ public abstract class WeatherRoomDatabase : RoomDatabase() {
     companion object{
 
         private var INSTANCE : WeatherRoomDatabase? = null
-        private val MIGRATION__1_2 = MigrationHelper()
+        private val MIGRATION_1_2 = MigrationHelper()
 
         fun getDataBase(context : Context): WeatherRoomDatabase{
             return INSTANCE?: synchronized(this) {
@@ -25,7 +25,7 @@ public abstract class WeatherRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     WeatherRoomDatabase::class.java,
                     "weather_table"
-                ).addMigrations(MIGRATION__1_2)
+                ).addMigrations(MIGRATION_1_2)
                     .build()
                 INSTANCE = instance
                 // return instance
@@ -35,4 +35,4 @@ public abstract class WeatherRoomDatabase : RoomDatabase() {
     }
 }
 
-//
+//.addMigrations(MIGRATION__1_2)
