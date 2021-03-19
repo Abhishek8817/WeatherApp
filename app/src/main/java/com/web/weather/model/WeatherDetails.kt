@@ -12,7 +12,7 @@ data class WeatherDetails(
 
 	@ColumnInfo(name = "wt_id" )
 	@field:SerializedName("id")
-	val id: Int,
+	val id: Int?=null,
 
 	@ColumnInfo(name = "wt_dt" )
 	@field:SerializedName("dt")
@@ -25,38 +25,38 @@ data class WeatherDetails(
 	@PrimaryKey
 	@ColumnInfo(name = "wt_name")
 	@field:SerializedName("name")
-	val name: String,
+	val name: String
 
-	@Embedded
-	@field:SerializedName("coord")
-	val coord: Coord? = null,
-
-	@ColumnInfo(name = "wt_visibility")
-	@field:SerializedName("visibility")
-	val visibility: Int? = null,
-
-
-	@TypeConverters(WeatherConverter::class)
-	@field:SerializedName("weather")
-	val weather: List<WeatherItem>,
-
-	@Embedded
-	@field:SerializedName("main")
-	val main: Main? = null,
-
-	@Embedded
-	@field:SerializedName("clouds")
-	val clouds: Clouds? = null,
-
-	@Embedded
-	@field:SerializedName("sys")
-	val sys: Sys,
-
-	@ColumnInfo(name = "wt_base")
-	@field:SerializedName("base")
-	val base: String? = null,
-
-	@Embedded
-	@field:SerializedName("wind")
-	val wind: Wind? = null
+//	@Embedded
+//	@field:SerializedName("coord")
+//	val coord: Coord? = null,
+//
+//	@ColumnInfo(name = "wt_visibility")
+//	@field:SerializedName("visibility")
+//	val visibility: Int? = null,
+//
+//
+//	@TypeConverters(WeatherConverter::class)
+//	@field:SerializedName("weather")
+//	val weather: List<WeatherItem>,
+//
+//	@Embedded
+//	@field:SerializedName("main")
+//	val main: Main? = null,
+//
+//	@Embedded
+//	@field:SerializedName("clouds")
+//	val clouds: Clouds? = null,
+//
+//	@Embedded
+//	@field:SerializedName("sys")
+//	val sys: Sys,
+//
+//	@ColumnInfo(name = "wt_base")
+//	@field:SerializedName("base")
+//	val base: String? = null,
+//
+//	@Embedded
+//	@field:SerializedName("wind")
+//	val wind: Wind? = null
 )

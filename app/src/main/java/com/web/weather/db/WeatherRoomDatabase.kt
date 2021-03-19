@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.web.weather.model.WeatherDetails
 
 
-@Database(entities = arrayOf(WeatherDetails::class)  , version = 5, exportSchema = false)
+@Database(entities = arrayOf(WeatherDetails::class)  , version = 2, exportSchema = false)
 @TypeConverters(WeatherConverter::class)
 public abstract class WeatherRoomDatabase : RoomDatabase() {
 
@@ -16,7 +16,8 @@ public abstract class WeatherRoomDatabase : RoomDatabase() {
 
     companion object{
 
-        private var INSTANCE : WeatherRoomDatabase? = null;
+        private var INSTANCE : WeatherRoomDatabase? = null
+        private val MIGRATION__1_2 = MigrationHelper()
 
         fun getDataBase(context : Context): WeatherRoomDatabase{
             return INSTANCE?: synchronized(this) {
@@ -24,7 +25,8 @@ public abstract class WeatherRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     WeatherRoomDatabase::class.java,
                     "weather_table"
-                ).build()
+                ).addMigrations(MIGRATION__1_2)
+                    .build()
                 INSTANCE = instance
                 // return instance
                 instance
@@ -32,3 +34,5 @@ public abstract class WeatherRoomDatabase : RoomDatabase() {
         }
     }
 }
+
+//
